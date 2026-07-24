@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Permit {
+  id                        String    @id @default(uuid())
+  permitNumber              String    @unique
+  permitType                String
+  issueDate                 DateTime
+  expiryDate                DateTime
+  
+  // Worker Details
+  workerName                String
+  nationality               String
+  gender                    String
+  idNumber                  String
+  profession                String
+  dob                       String?
+
+  // Facility Details
+  facilityName              String
+  facilityNumber            String
+  
+  // Beneficiary Facility Details (from 2nd image)
+  beneficiaryFacilityName   String?
+  beneficiaryFacilityNumber String?
+  contractDescription       String?
+  workLocations             String?
+
+  // Security
+  passwordHash              String?   // Null if public, bcrypt hashed if protected
+  
+  createdAt                 DateTime  @default(now())
+  updatedAt                 DateTime  @updatedAt
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String
+  name          String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}

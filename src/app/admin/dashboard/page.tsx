@@ -1,11 +1,9 @@
 import { getServerAuthSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { Plus, Eye, Share2, Trash2 } from "lucide-react";
 import { format } from "date-fns";
-
-const prisma = new PrismaClient();
 
 export default async function DashboardPage() {
   const session = await getServerAuthSession();

@@ -1,8 +1,6 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import PermitView from "./PermitView";
-
-const prisma = new PrismaClient();
 
 export default async function PermitPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;

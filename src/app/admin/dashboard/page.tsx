@@ -1,3 +1,4 @@
+import { Permit } from "@prisma/client";
 import { getServerAuthSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
@@ -50,7 +51,7 @@ export default async function DashboardPage() {
                   </td>
                 </tr>
               ) : (
-                permits.map((permit) => (
+                permits.map((permit: Permit) => (
                   <tr key={permit.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 font-medium text-gray-900">{permit.permitNumber}</td>
                     <td className="px-6 py-4">{permit.workerName}</td>

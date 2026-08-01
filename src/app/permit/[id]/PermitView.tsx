@@ -86,96 +86,97 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 w-full bg-[#f7f8f7] max-w-[1398px] mx-auto py-12 px-4 flex flex-col items-center">
+      <div className="w-full mr-[90px] mt-[45px] mb-[60px]">
+        <main className="flex-1 w-full bg-[#f7f8f7] max-w-[1398px] pt-[28px] px-4 flex flex-col items-center">
 
-        {/* Web Document Container */}
-        <div className="w-full bg-[#fbfcfb] border border-[#cfd3d8] max-w-[1024px]">
+          {/* Web Document Container */}
+          <div className="w-full bg-[#fbfcfb] border border-[#cfd3d8] max-w-[1024px]">
 
-          {/* Header Box — RTL: col-1=right, col-2=center, col-3=left */}
-          {/* Target: RIGHT=logos, CENTER=title, LEFT=status */}
-          <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_200px] border border-[#cfd3d8] mb-10 items-stretch bg-white">
+            {/* Header Box — RTL: col-1=right, col-2=center, col-3=left */}
+            {/* Target: RIGHT=logos, CENTER=title, LEFT=status */}
+            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_200px] border border-[#cfd3d8] mb-10 items-stretch bg-white">
 
-            {/* Col-1 (visually RIGHT in RTL): Logos — MLSD + Ajeer */}
-            <div className="flex h-[126px] items-center justify-center p-4 border-b md:border-b-0 md:border-l border-[#cfd3d8] gap-6">
-              <Image src="/logos/mlsd-logo.png" alt="Ministry" width={172} height={40} className="object-contain" />
-              <Image src="/logos/ajeer-logo.png" alt="Ajeer" width={74} height={35} className="object-contain" />
+              {/* Col-1 (visually RIGHT in RTL): Logos — MLSD + Ajeer */}
+              <div className="flex h-[126px] items-center justify-center p-4 border-b md:border-b-0 md:border-l border-[#cfd3d8] gap-6">
+                <Image src="/logos/ajeer-logo.png" alt="Ajeer" width={74} height={35} className="object-contain" />
+                <Image src="/logos/mlsd-logo.png" alt="Ministry" width={172} height={40} className="object-contain" />
+              </div>
+
+              {/* Col-2 (CENTER): Title */}
+              <div className="flex h-[126px] items-center justify-center p-6 border-b md:border-b-0 md:border-l border-[#cfd3d8]">
+                <h1 className="text-[30px] font-bold text-[#071017]">التحقق من تصريح أجير</h1>
+              </div>
+
+              {/* Col-3 (visually LEFT in RTL): Status */}
+              <div className="flex h-[126px] items-center justify-center p-6">
+                <span className="text-[#176747] font-bold text-lg">ساري / فعال</span>
+              </div>
             </div>
 
-            {/* Col-2 (CENTER): Title */}
-            <div className="flex h-[126px] items-center justify-center p-6 border-b md:border-b-0 md:border-l border-[#cfd3d8]">
-              <h1 className="text-[30px] font-bold text-[#071017]">التحقق من تصريح أجير</h1>
+            {/* Success message */}
+            <div className="text-center text-[#071017] mb-10 font-medium">
+              تم التحقق من التصريح بنجاح
             </div>
 
-            {/* Col-3 (visually LEFT in RTL): Status */}
-            <div className="flex h-[126px] items-center justify-center p-6">
-              <span className="text-[#176747] font-bold text-lg">ساري / فعال</span>
+            {/* Tables Container */}
+            <div className="px-4">
+              <div className="w-full border border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
+
+                {/* Permit Data */}
+                <div className="bg-[#e9eeee] py-3 font-bold border-b border-[#cfd3d8]">
+                  بيانات التصريح
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-4">
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">رقم التصريح</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.permitNumber}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">نوع التصريح</div>
+                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white">{permit.permitType}</div>
+
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">تاريخ بداية التصريح</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{issueStr}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">تاريخ نهاية التصريح</div>
+                  <div className="p-3 border-[#cfd3d8] flex items-center justify-center bg-white">{expiryStr}</div>
+                </div>
+              </div>
+
+              <div className="w-full border-x border-b border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
+                {/* Worker Data */}
+                <div className="bg-[#e9eeee] py-3 font-bold border-b border-[#cfd3d8]">
+                  بيانات العامل
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-4">
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">اسم العامل</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center uppercase bg-white">{permit.workerName}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">رقم الهوية / الإقامة</div>
+                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white">{permit.idNumber}</div>
+
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">الجنسية</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.nationality}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">المهنة</div>
+                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white">{permit.profession}</div>
+
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">الجنس</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.gender || "-"}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">تاريخ الميلاد</div>
+                  <div className="p-3 text-[#111827] flex items-center justify-center bg-white">{permit.dob || "-"}</div>
+                </div>
+              </div>
+
+              <div className="w-full border-x border-b border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
+                {/* Facility Data */}
+                <div className="bg-[#e9eeee] py-3 font-bold border-b border-[#cfd3d8]">
+                  بيانات المنشأة
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-4">
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">رقم المنشأة</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.facilityNumber}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">اسم المنشأة</div>
+                  <div className="p-3 flex items-center justify-center bg-white">{permit.facilityName}</div>
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* Success message */}
-          <div className="text-center text-[#071017] mb-10 font-medium">
-            تم التحقق من التصريح بنجاح
-          </div>
-
-          {/* Tables Container */}
-          <div className="px-4">
-            <div className="w-full border border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
-
-              {/* Permit Data */}
-              <div className="bg-[#e9eeee] py-3 font-bold border-b border-[#cfd3d8]">
-                بيانات التصريح
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-4">
-                <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">رقم التصريح</div>
-                <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.permitNumber}</div>
-                <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">نوع التصريح</div>
-                <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white">{permit.permitType}</div>
-
-                <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">تاريخ بداية التصريح</div>
-                <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{issueStr}</div>
-                <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">تاريخ نهاية التصريح</div>
-                <div className="p-3 border-[#cfd3d8] flex items-center justify-center bg-white">{expiryStr}</div>
-              </div>
-            </div>
-
-            <div className="w-full border-x border-b border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
-              {/* Worker Data */}
-              <div className="bg-[#e9eeee] py-3 font-bold border-b border-[#cfd3d8]">
-                بيانات العامل
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-4">
-                <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">اسم العامل</div>
-                <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center uppercase bg-white">{permit.workerName}</div>
-                <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">رقم الهوية / الإقامة</div>
-                <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white">{permit.idNumber}</div>
-
-                <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">الجنسية</div>
-                <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.nationality}</div>
-                <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">المهنة</div>
-                <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white">{permit.profession}</div>
-
-                <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">الجنس</div>
-                <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.gender || "-"}</div>
-                <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">تاريخ الميلاد</div>
-                <div className="p-3 text-[#111827] flex items-center justify-center bg-white">{permit.dob || "-"}</div>
-              </div>
-            </div>
-
-            <div className="w-full border-x border-b border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
-              {/* Facility Data */}
-              <div className="bg-[#e9eeee] py-3 font-bold border-b border-[#cfd3d8]">
-                بيانات المنشأة
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-4">
-                <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">رقم المنشأة</div>
-                <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.facilityNumber}</div>
-                <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">اسم المنشأة</div>
-                <div className="p-3 flex items-center justify-center bg-white">{permit.facilityName}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+        </main></div>
 
       {/* Footer */}
       <footer className="bg-[#ffffff] border-t border-[#e5e7eb] py-6 mt-auto text-sm w-full">

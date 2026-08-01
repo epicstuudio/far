@@ -178,11 +178,11 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#ffffff] border-t border-[#e5e7eb] py-8 mt-auto text-sm w-full">
-        <div className="w-full px-4 md:px-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-10 md:gap-6">
+      <footer className="bg-[#ffffff] border-t border-[#e5e7eb] py-6 mt-auto text-sm w-full">
+        <div className="w-full px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-6">
 
           {/* FIRST child in DOM = visually RIGHT in RTL: Nav links + contact */}
-          <div className="flex flex-col sm:flex-row flex-wrap items-start gap-8 md:gap-12 text-right">
+          <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12 text-right">
 
             <div className="flex flex-col gap-2 text-[#4b5563] w-[200px]">
               <span className="font-bold text-[#071017] text-sm mb-1">أجير</span>
@@ -218,7 +218,7 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
           </div>
 
           {/* LAST child in DOM = visually LEFT in RTL: Partner logos */}
-          <div className="flex flex-wrap items-center gap-6 md:justify-end">
+          <div className="flex flex-col md:flex-row items-center gap-6">
             <Image src="/logos/mlsd-logo.png" alt="Ministry" width={150} height={50} className="object-contain" />
             <Image src="/logos/takamol-logo.png" alt="Takamol" width={90} height={50} className="object-contain" />
             <Image src="/logos/tamkeen-logo-1.svg" alt="Tamkeen" width={150} height={50} className="object-contain" />

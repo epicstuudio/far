@@ -3,8 +3,9 @@ import { getServerAuthSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { Plus, Eye, Share2, Trash2 } from "lucide-react";
+import { Plus, Eye, Trash2 } from "lucide-react";
 import { format } from "date-fns";
+import DownloadPdfAction from "@/components/DownloadPdfAction";
 
 export default async function DashboardPage() {
   const session = await getServerAuthSession();
@@ -72,9 +73,7 @@ export default async function DashboardPage() {
                       <Link href={`/permit/${permit.id}`} target="_blank" className="text-gray-500 hover:text-blue-600">
                         <Eye size={18} />
                       </Link>
-                      <button className="text-gray-500 hover:text-blue-600">
-                        <Share2 size={18} />
-                      </button>
+                      <DownloadPdfAction permit={permit} />
                       <button className="text-gray-500 hover:text-red-600">
                         <Trash2 size={18} />
                       </button>

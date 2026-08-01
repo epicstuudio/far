@@ -18,14 +18,9 @@ const PermitPdfTemplate = forwardRef<HTMLDivElement, { permit: any }>(({ permit 
       {/* Header Box */}
       <div className="border border-[#d1d5db] flex justify-between items-center p-4">
         {/* Right: Logos */}
-        <div className="flex items-center gap-4 w-1/3">
-          <div className="text-right leading-tight border-l border-[#d1d5db] pl-4">
-            <div className="text-[10px] text-[#2563eb] font-bold">الموارد البشرية</div>
-            <div className="text-[10px] text-[#2563eb] font-bold">والتنمية الاجتماعية</div>
-          </div>
-          <div className="text-2xl font-bold text-[#00602b] leading-none text-center">
-            أجير<br/><span className="text-[10px] uppercase tracking-widest text-[#6b7280]">Ajeer</span>
-          </div>
+        <div className="flex items-center gap-6 w-1/3">
+          <img src="/logos/mlsd-logo.png" alt="Ministry" width={140} className="object-contain" />
+          <img src="/logos/ajeer-logo.png" alt="Ajeer" width={60} className="object-contain" />
         </div>
         
         {/* Center: Title */}

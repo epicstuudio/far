@@ -19,6 +19,7 @@
   --color-foreground: var(--foreground);
   --font-sans: 'Frutiger Arabic', Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono);
+  --text-lg: 17px;
 }
 
 /* Dark mode disabled to enforce paper-like light theme globally */

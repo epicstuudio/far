@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { format } from "date-fns";
 import Image from "next/image";
+import Link from "next/link";
 export default function PermitView({ permit, requiresPassword }: { permit: any, requiresPassword: boolean }) {
   const [isUnlocked, setIsUnlocked] = useState(!requiresPassword);
   const [password, setPassword] = useState("");
@@ -87,7 +88,7 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
 
       {/* Main Content */}
       <div className="w-full mr-[90px] mt-[45px] mb-[60px]">
-        <main className="flex-1 w-full bg-[#f7f8f7] max-w-[1398px] pt-[28px] px-4 flex flex-col items-center">
+        <main className="flex-1 w-full bg-[#f7f8f7] max-w-[1398px] pt-[28px] pb-[54px] px-4 flex flex-col items-center">
 
           {/* Web Document Container */}
           <div className="w-full bg-[#fbfcfb] border border-[#cfd3d8] max-w-[1024px]">
@@ -114,7 +115,7 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
             </div>
 
             {/* Success message */}
-            <div className="text-center text-[#071017] mb-10 font-medium">
+            <div className="text-center text-[#071017] text-[18px] pt-[32px] mb-10 font-medium">
               تم التحقق من التصريح بنجاح
             </div>
 
@@ -123,55 +124,55 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
               <div className="w-full border border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
 
                 {/* Permit Data */}
-                <div className="bg-[#e9eeee] py-3 font-bold border-b border-[#cfd3d8]">
+                <div className="bg-[#e9eeee] py-3 text-[19px] font-bold border-b border-[#cfd3d8]">
                   بيانات التصريح
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-4">
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">رقم التصريح</div>
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.permitNumber}</div>
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">نوع التصريح</div>
-                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white">{permit.permitType}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">رقم التصريح</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.permitNumber}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">نوع التصريح</div>
+                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.permitType}</div>
 
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">تاريخ بداية التصريح</div>
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{issueStr}</div>
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">تاريخ نهاية التصريح</div>
-                  <div className="p-3 border-[#cfd3d8] flex items-center justify-center bg-white">{expiryStr}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">تاريخ بداية التصريح</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{issueStr}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">تاريخ نهاية التصريح</div>
+                  <div className="p-3 border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{expiryStr}</div>
                 </div>
               </div>
 
               <div className="w-full border-x border-b border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
                 {/* Worker Data */}
-                <div className="bg-[#e9eeee] py-3 font-bold border-b border-[#cfd3d8]">
+                <div className="bg-[#e9eeee] py-3 text-[19px] font-bold border-b border-[#cfd3d8]">
                   بيانات العامل
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-4">
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">اسم العامل</div>
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center uppercase bg-white">{permit.workerName}</div>
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">رقم الهوية / الإقامة</div>
-                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white">{permit.idNumber}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">اسم العامل</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center uppercase bg-white font-bold text-lg">{permit.workerName}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">رقم الهوية / الإقامة</div>
+                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.idNumber}</div>
 
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">الجنسية</div>
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.nationality}</div>
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">المهنة</div>
-                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white">{permit.profession}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">الجنسية</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.nationality}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">المهنة</div>
+                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.profession}</div>
 
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">الجنس</div>
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.gender || "-"}</div>
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">تاريخ الميلاد</div>
-                  <div className="p-3 text-[#111827] flex items-center justify-center bg-white">{permit.dob || "-"}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">الجنس</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.gender || "-"}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">تاريخ الميلاد</div>
+                  <div className="p-3 text-[#111827] flex items-center justify-center bg-white font-bold text-lg">{permit.dob || "-"}</div>
                 </div>
               </div>
 
               <div className="w-full border-x border-b border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
                 {/* Facility Data */}
-                <div className="bg-[#e9eeee] py-3 font-bold border-b border-[#cfd3d8]">
+                <div className="bg-[#e9eeee] py-3 font-bold text-[19px] border-b border-[#cfd3d8]">
                   بيانات المنشأة
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-4">
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">رقم المنشأة</div>
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white">{permit.facilityNumber}</div>
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-center">اسم المنشأة</div>
-                  <div className="p-3 flex items-center justify-center bg-white">{permit.facilityName}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">رقم المنشأة</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.facilityNumber}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">اسم المنشأة</div>
+                  <div className="p-3 flex items-center justify-center bg-white font-bold text-lg">{permit.facilityName}</div>
                 </div>
               </div>
             </div>
@@ -179,38 +180,38 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
         </main></div>
 
       {/* Footer */}
-      <footer className="bg-[#ffffff] border-t border-[#e5e7eb] py-6 mt-auto text-sm w-full">
-        <div className="w-full px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-6">
+      <footer className="bg-[#ffffff] border-t border-[#e5e7eb] pt-[30px] pb-[20px] px-[20px] mt-auto text-sm w-full">
+        <div className="w-full flex flex-col md:flex-row justify-start items-center">
 
           {/* FIRST child in DOM = visually RIGHT in RTL: Nav links + contact */}
-          <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12 text-right">
+          <div className="flex flex-col md:flex-row items-start text-right">
 
-            <div className="flex flex-col gap-2 text-[#4b5563] w-[200px]">
-              <span className="font-bold text-[#071017] text-sm mb-1">أجير</span>
-              <span>عن أجير</span>
-              <span>خدمات أجير</span>
+            <div className="flex flex-col gap-2 text-[#021550] w-[214px]">
+              <span className="font-bold text-[#071017] text-[15px] mb-4">أجير</span>
+              <Link href="https://ajeer.qiwa.sa/about" className="hover:underline">عن أجير</Link>
+              <Link href="https://ajeer.qiwa.sa/about_notices" className="hover:underline">خدمات أجير</Link>
             </div>
 
-            <div className="flex flex-col gap-2 text-[#4b5563] w-[200px]">
-              <span className="font-bold text-[#071017] text-sm mb-1">الدعم</span>
-              <span>الدعم والمساعدة</span>
-              <span>الأسئلة الشائعة</span>
+            <div className="flex flex-col gap-2 text-[#021550] w-[214px]">
+              <span className="font-bold text-[#071017] text-[15px] mb-4">الدعم</span>
+              <Link href="https://ajeer.qiwa.sa/support" className="hover:underline">الدعم والمساعدة</Link>
+              <Link href="https://ajeer.qiwa.sa/faq" className="hover:underline">الأسئلة الشائعة</Link>
             </div>
-            <div className="flex flex-col gap-2 text-[#4b5563] w-[200px]">
-              <span className="font-bold text-[#071017] text-sm mb-1">الشروط والخصوصية</span>
-              <span>الشروط والأحكام</span>
-              <span>سياسة الخصوصية</span>
+            <div className="flex flex-col gap-2 text-[#021550] w-[214px]">
+              <span className="font-bold text-[#071017] text-[15px] mb-4">الشروط والخصوصية</span>
+              <Link href="https://ajeer.qiwa.sa/terms" className="hover:underline">الشروط والأحكام</Link>
+              <Link href="https://ajeer.qiwa.sa/privacy_policy" className="hover:underline">سياسة الخصوصية</Link>
             </div>
-            <div className="flex flex-col gap-2 text-[#4b5563] w-[200px]">
-              <span className="font-bold text-[#071017] text-sm mb-1">تواصل معنا</span>
+            <div className="flex flex-col gap-2 text-[#021550] w-[214px]">
+              <span className="font-bold text-[#071017] text-[15px] mb-4">تواصل معنا</span>
               <div className="flex gap-4 items-center justify-start">
-                <a href="#" className="text-[#6b7280] hover:text-[#071017] flex items-center justify-center">
+                <a href="https://twitter.com/AjeerSA" className="text-[#6b7280] hover:text-[#071017] flex items-center justify-center">
                   <Image src="/x-twitter.svg" alt="X" width={16} height={16} />
                 </a>
-                <a href="#" className="text-[#6b7280] hover:text-[#071017] flex items-center justify-center">
+                <a href="mailto:support@ajeer.com.sa" className="text-[#6b7280] hover:text-[#071017] flex items-center justify-center">
                   <Image src="/plane.svg" alt="Send" width={16} height={16} />
                 </a>
-                <a href="#" className="text-[#6b7280] hover:text-[#071017] flex items-center justify-center">
+                <a href="tel:920011040" className="text-[#6b7280] hover:text-[#071017] flex items-center justify-center">
                   <Image src="/Phone.svg" alt="Phone" width={16} height={16} />
                 </a>
               </div>
@@ -219,13 +220,19 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
           </div>
 
           {/* LAST child in DOM = visually LEFT in RTL: Partner logos */}
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <Image src="/logos/mlsd-logo.png" alt="Ministry" width={150} height={50} className="object-contain" />
-            <Image src="/logos/takamol-logo.png" alt="Takamol" width={90} height={50} className="object-contain" />
-            <Image src="/logos/tamkeen-logo-1.svg" alt="Tamkeen" width={150} height={50} className="object-contain" />
-            <Image src="/logos/digital-govt-auth-logo.svg" alt="DGA" width={300} height={84} className="object-contain" />
-
-
+          <div className="flex flex-col md:flex-row items-center">
+            <Link href="https://mlsd.gov.sa/">
+              <Image src="/logos/mlsd-logo.png" alt="Ministry" width={150} height={50} className="object-contain px-2 h-[50px] w-auto" />
+            </Link>
+            <Link href="https://takamolholding.com/">
+              <Image src="/logos/takamol-logo.png" alt="Takamol" width={90} height={50} className="object-contain px-2 h-[50px] w-auto" />
+            </Link>
+            <Link href="https://tamkeentech.sa/">
+              <Image src="/logos/tamkeen-logo-1.svg" alt="Tamkeen" width={150} height={50} className="object-contain px-2 h-[50px] w-[170px]" />
+            </Link>
+            <Link href="https://raqmi.dga.gov.sa/platforms/DigitalStamp/ShowCertificate/441">
+              <Image src="/logos/digital-govt-auth-logo.svg" alt="DGA" width={300} height={84} className="object-contain px-2 h-[88px] w-[305px]" />
+            </Link>
           </div>
 
         </div>

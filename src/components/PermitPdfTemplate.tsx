@@ -7,7 +7,7 @@ const PermitPdfTemplate = forwardRef<HTMLDivElement, { permit: any }>(({ permit 
 
   useEffect(() => {
     const baseUrl = window.location.origin;
-    setPublicUrl(`${baseUrl}/permit/${permit.id}`);
+    setPublicUrl(`${baseUrl}/notice-verification/${permit.id}`);
   }, [permit.id]);
 
   const issueStr = format(new Date(permit.issueDate), "yyyy-MM-dd");

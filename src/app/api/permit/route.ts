@@ -2,6 +2,14 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getServerAuthSession } from "@/lib/auth";
 import bcrypt from "bcryptjs";
+import crypto from "crypto";
+
+function generateLongId() {
+  const header = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"; // {"typ":"JWT","alg":"HS256"}
+  const payload = crypto.randomBytes(132).toString('base64url'); // 176 chars
+  const signature = crypto.randomBytes(32).toString('base64url'); // 43 chars
+  return `${header}.${payload}.${signature}`;
+}
 
 export async function POST(req: Request) {
   try {
@@ -20,6 +28,7 @@ export async function POST(req: Request) {
 
     const permit = await prisma.permit.create({
       data: {
+        id: generateLongId(),
         permitNumber: data.permitNumber,
         permitType: data.permitType,
         issueDate: new Date(data.issueDate),

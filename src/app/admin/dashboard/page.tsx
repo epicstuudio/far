@@ -70,7 +70,7 @@ export default async function DashboardPage() {
                       )}
                     </td>
                     <td className="px-6 py-4 text-right flex justify-end gap-3">
-                      <Link href={`/permit/${permit.id}`} target="_blank" className="text-gray-500 hover:text-blue-600">
+                      <Link href={`/notice-verification/${permit.id}`} target="_blank" className="text-gray-500 hover:text-blue-600">
                         <Eye size={18} />
                       </Link>
                       <DownloadPdfAction permit={permit} />

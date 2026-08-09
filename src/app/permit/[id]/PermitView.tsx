@@ -87,7 +87,7 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
       </header>
 
       {/* Main Content */}
-      <div className="w-full mr-[90px] mt-[45px] mb-[60px]">
+      <div className="w-full md:mr-[90px] md:mt-[45px] md:mb-[60px]">
         <main className="flex-1 w-full bg-[#f7f8f7] max-w-[1398px] pt-[28px] pb-[54px] px-4 flex flex-col items-center">
 
           {/* Web Document Container */}
@@ -98,81 +98,81 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
             <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_200px] border border-[#cfd3d8] mb-10 items-stretch bg-white">
 
               {/* Col-1 (visually RIGHT in RTL): Logos — MLSD + Ajeer */}
-              <div className="flex h-[126px] items-center justify-center p-4 border-b md:border-b-0 md:border-l border-[#cfd3d8] gap-6">
+              <div className="flex md:h-[126px] items-center justify-center p-4 md:p-6 border-b md:border-b-0 md:border-l border-[#cfd3d8] gap-6">
                 <Image src="/logos/ajeer-logo.png" alt="Ajeer" width={74} height={35} className="object-contain" />
                 <Image src="/logos/mlsd-logo.png" alt="Ministry" width={172} height={40} className="object-contain" />
               </div>
 
               {/* Col-2 (CENTER): Title */}
-              <div className="flex h-[126px] items-center justify-center p-6 border-b md:border-b-0 md:border-l border-[#cfd3d8]">
-                <h1 className="text-[30px] font-bold text-[#071017]">التحقق من تصريح أجير</h1>
+              <div className="flex md:h-[126px] items-center justify-center p-4 md:p-6 border-b md:border-b-0 md:border-l border-[#cfd3d8]">
+                <h1 className="text-[24px] md:text-[30px] font-bold text-[#071017]">التحقق من تصريح أجير</h1>
               </div>
 
               {/* Col-3 (visually LEFT in RTL): Status */}
-              <div className="flex h-[126px] items-center justify-center p-6">
+              <div className="flex md:h-[126px] items-center justify-center p-4 md:p-6">
                 <span className="text-[#176747] font-bold text-lg">ساري / فعال</span>
               </div>
             </div>
 
             {/* Success message */}
-            <div className="text-center text-[#071017] text-[18px] pt-[32px] mb-10 font-medium">
+            <div className="text-center text-[#071017] md:text-[18px] text-[15px] md:pt-[32px] md:mb-10 mb-6 font-medium">
               تم التحقق من التصريح بنجاح
             </div>
 
             {/* Tables Container */}
             <div className="px-4">
-              <div className="w-full border border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
+              <div className="w-full border border-[#cfd3d8] text-[#071017] text-sm md:text-center font-medium bg-[#fbfcfb]">
 
                 {/* Permit Data */}
-                <div className="bg-[#e9eeee] py-3 text-[19px] font-bold border-b border-[#cfd3d8]">
+                <div className="bg-[#e9eeee] py-3 text-[19px] md:pr-0 pr-2 font-bold border-b border-[#cfd3d8]">
                   بيانات التصريح
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-4">
                   <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">رقم التصريح</div>
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.permitNumber}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{permit.permitNumber}</div>
                   <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">نوع التصريح</div>
-                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.permitType}</div>
+                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{permit.permitType}</div>
 
                   <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">تاريخ بداية التصريح</div>
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{issueStr}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{issueStr}</div>
                   <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">تاريخ نهاية التصريح</div>
-                  <div className="p-3 border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{expiryStr}</div>
+                  <div className="p-3 border-[#cfd3d8] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{expiryStr}</div>
                 </div>
               </div>
 
-              <div className="w-full border-x border-b border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
+              <div className="w-full border-x border-b border-[#cfd3d8] text-[#071017] text-sm md:text-center font-medium bg-[#fbfcfb]">
                 {/* Worker Data */}
-                <div className="bg-[#e9eeee] py-3 text-[19px] font-bold border-b border-[#cfd3d8]">
+                <div className="bg-[#e9eeee] py-3 text-[19px] md:pr-0 pr-2 font-bold border-b border-[#cfd3d8]">
                   بيانات العامل
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-4">
                   <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">اسم العامل</div>
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center uppercase bg-white font-bold text-lg">{permit.workerName}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{permit.workerName}</div>
                   <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">رقم الهوية / الإقامة</div>
-                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.idNumber}</div>
+                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{permit.idNumber}</div>
 
                   <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">الجنسية</div>
-                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.nationality}</div>
+                  <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{permit.nationality}</div>
                   <div className="p-3 border-b md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">المهنة</div>
-                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.profession}</div>
+                  <div className="p-3 border-b border-[#cfd3d8] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{permit.profession}</div>
 
                   <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">الجنس</div>
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.gender || "-"}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{permit.gender || "-"}</div>
                   <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">تاريخ الميلاد</div>
-                  <div className="p-3 text-[#111827] flex items-center justify-center bg-white font-bold text-lg">{permit.dob || "-"}</div>
+                  <div className="p-3 text-[#111827] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{permit.dob || "-"}</div>
                 </div>
               </div>
 
-              <div className="w-full border-x border-b border-[#cfd3d8] text-[#071017] text-sm text-center font-medium bg-[#fbfcfb]">
+              <div className="w-full border-x border-b border-[#cfd3d8] text-[#071017] text-sm md:text-center font-medium bg-[#fbfcfb]">
                 {/* Facility Data */}
-                <div className="bg-[#e9eeee] py-3 font-bold text-[19px] border-b border-[#cfd3d8]">
+                <div className="bg-[#e9eeee] py-3 font-bold text-[19px] md:pr-0 pr-2 border-b border-[#cfd3d8]">
                   بيانات المنشأة
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-4">
                   <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">رقم المنشأة</div>
-                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-center bg-white font-bold text-lg">{permit.facilityNumber}</div>
+                  <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center justify-start md:justify-center bg-white font-bold text-lg">{permit.facilityNumber}</div>
                   <div className="p-3 border-b md:border-b-0 md:border-l border-[#cfd3d8] flex items-center bg-[#e9eeee] justify-start text-lg">اسم المنشأة</div>
-                  <div className="p-3 flex items-center justify-center bg-white font-bold text-lg">{permit.facilityName}</div>
+                  <div className="p-3 flex items-center justify-start md:justify-center bg-white font-bold text-lg">{permit.facilityName}</div>
                 </div>
               </div>
             </div>
@@ -181,29 +181,29 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
 
       {/* Footer */}
       <footer className="bg-[#ffffff] border-t border-[#e5e7eb] pt-[30px] pb-[20px] px-[20px] mt-auto text-sm w-full">
-        <div className="w-full flex flex-col md:flex-row justify-start items-center">
+        <div className="w-full flex flex-col md:flex-row justify-between items-stretch md:items-center gap-8 md:gap-6">
 
           {/* FIRST child in DOM = visually RIGHT in RTL: Nav links + contact */}
-          <div className="flex flex-col md:flex-row items-start text-right">
+          <div className="flex flex-col md:flex-row items-start text-right w-full md:w-auto gap-8 md:gap-0">
 
-            <div className="flex flex-col gap-2 text-[#021550] w-[214px]">
-              <span className="font-bold text-[#071017] text-[15px] mb-4">أجير</span>
+            <div className="flex flex-col gap-2 text-[#021550] w-full md:w-[214px]">
+              <span className="font-bold text-[#071017] text-[15px] md:mb-4">أجير</span>
               <Link href="https://ajeer.qiwa.sa/about" className="hover:underline">عن أجير</Link>
               <Link href="https://ajeer.qiwa.sa/about_notices" className="hover:underline">خدمات أجير</Link>
             </div>
 
-            <div className="flex flex-col gap-2 text-[#021550] w-[214px]">
-              <span className="font-bold text-[#071017] text-[15px] mb-4">الدعم</span>
+            <div className="flex flex-col gap-2 text-[#021550] w-full md:w-[214px]">
+              <span className="font-bold text-[#071017] text-[15px] md:mb-4">الدعم</span>
               <Link href="https://ajeer.qiwa.sa/support" className="hover:underline">الدعم والمساعدة</Link>
               <Link href="https://ajeer.qiwa.sa/faq" className="hover:underline">الأسئلة الشائعة</Link>
             </div>
-            <div className="flex flex-col gap-2 text-[#021550] w-[214px]">
-              <span className="font-bold text-[#071017] text-[15px] mb-4">الشروط والخصوصية</span>
+            <div className="flex flex-col gap-2 text-[#021550] w-full md:w-[214px]">
+              <span className="font-bold text-[#071017] text-[15px] md:mb-4">الشروط والخصوصية</span>
               <Link href="https://ajeer.qiwa.sa/terms" className="hover:underline">الشروط والأحكام</Link>
               <Link href="https://ajeer.qiwa.sa/privacy_policy" className="hover:underline">سياسة الخصوصية</Link>
             </div>
-            <div className="flex flex-col gap-2 text-[#021550] w-[214px]">
-              <span className="font-bold text-[#071017] text-[15px] mb-4">تواصل معنا</span>
+            <div className="flex flex-col gap-2 text-[#021550] w-full md:w-[214px]">
+              <span className="font-bold text-[#071017] text-[15px] md:mb-4">تواصل معنا</span>
               <div className="flex gap-4 items-center justify-start">
                 <a href="https://twitter.com/AjeerSA" className="text-[#6b7280] hover:text-[#071017] flex items-center justify-center">
                   <Image src="/x-twitter.svg" alt="X" width={16} height={16} />
@@ -220,19 +220,23 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
           </div>
 
           {/* LAST child in DOM = visually LEFT in RTL: Partner logos */}
-          <div className="flex flex-col md:flex-row items-center">
-            <Link href="https://mlsd.gov.sa/">
-              <Image src="/logos/mlsd-logo.png" alt="Ministry" width={150} height={50} className="object-contain px-2 h-[50px] w-auto" />
-            </Link>
-            <Link href="https://takamolholding.com/">
-              <Image src="/logos/takamol-logo.png" alt="Takamol" width={90} height={50} className="object-contain px-2 h-[50px] w-auto" />
-            </Link>
-            <Link href="https://tamkeentech.sa/">
-              <Image src="/logos/tamkeen-logo-1.svg" alt="Tamkeen" width={150} height={50} className="object-contain px-2 h-[50px] w-[170px]" />
-            </Link>
-            <Link href="https://raqmi.dga.gov.sa/platforms/DigitalStamp/ShowCertificate/441">
-              <Image src="/logos/digital-govt-auth-logo.svg" alt="DGA" width={300} height={84} className="object-contain px-2 h-[88px] w-[305px]" />
-            </Link>
+          <div className="flex flex-row items-center justify-between w-full md:w-auto pt-8 md:pt-0 border-t border-[#e5e7eb] md:border-none mt-2 md:mt-0">
+            <div className="flex flex-col md:flex-row items-center justify-center w-1/2 md:w-auto border-l border-[#e5e7eb] md:border-none gap-6 md:gap-0 pl-4 md:pl-0">
+              <Link href="https://mlsd.gov.sa/">
+                <Image src="/logos/mlsd-logo.png" alt="Ministry" width={150} height={50} className="object-contain md:px-2 h-[50px] w-auto max-w-full" />
+              </Link>
+              <Link href="https://takamolholding.com/">
+                <Image src="/logos/takamol-logo.png" alt="Takamol" width={90} height={50} className="object-contain md:px-2 h-[50px] w-auto max-w-full" />
+              </Link>
+              <Link href="https://tamkeentech.sa/">
+                <Image src="/logos/tamkeen-logo-1.svg" alt="Tamkeen" width={150} height={50} className="object-contain md:px-2 h-[50px] w-auto md:w-[170px] max-w-full" />
+              </Link>
+            </div>
+            <div className="flex flex-col md:flex-row items-center justify-center w-1/2 md:w-auto pr-4 md:pr-0">
+              <Link href="https://raqmi.dga.gov.sa/platforms/DigitalStamp/ShowCertificate/441">
+                <Image src="/logos/digital-govt-auth-logo.svg" alt="DGA" width={300} height={84} className="object-contain md:px-2 h-[84px] w-auto md:w-[305px] max-w-full" />
+              </Link>
+            </div>
           </div>
 
         </div>

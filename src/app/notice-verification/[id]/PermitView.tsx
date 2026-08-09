@@ -79,10 +79,14 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
         {/* In RTL: first child = visually RIGHT side */}
 
         <div className="flex items-center">
-          <Image src="/logos/ajeer-logo.png" alt="Ajeer" width={40} height={40} className="object-contain" />
+          <Link href="https://ajeer.qiwa.sa/landing/">
+            <Image src="/logos/ajeer-logo.png" alt="Ajeer" width={40} height={40} className="object-contain" />
+          </Link>
         </div>
         <div className="flex items-center">
-          <Image src="/logos/mlsd-logo.png" alt="Ministry" width={104} height={32} className="object-contain" />
+          <Link href="https://mlsd.gov.sa/">
+            <Image src="/logos/mlsd-logo.png" alt="Ministry" width={104} height={32} className="object-contain" />
+          </Link>
         </div>
       </header>
 

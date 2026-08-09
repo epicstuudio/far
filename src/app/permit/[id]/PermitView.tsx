@@ -241,6 +241,11 @@ export default function PermitView({ permit, requiresPassword }: { permit: any, 
 
         </div>
       </footer>
+
+      {/* Floating Chat Icon */}
+      <a href="#" className="fixed bottom-6 left-6 z-50">
+        <Image src="/wa.png" alt="Chat" width={90} height={90} className="hover:scale-105 transition-transform" />
+      </a>
     </div>
   );
 }
